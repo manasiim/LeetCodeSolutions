@@ -1,0 +1,47 @@
+Remove Vowels from a String — LeetCode 1119
+Given a string S, remove the vowels ‘a’, ‘e’, ‘i’, ‘o’, and ‘u’ from it, and return the new string.
+Example 1:
+Input: "leetcodeisacommunityforcoders"
+Output: "ltcdscmmntyfrcdrs"
+Example 2:
+Input: "aeiou"
+Output: ""
+Note:
+S consists of lowercase English letters only.
+1 <= S.length <= 100
+Algorithm:
+Create a stringbuilder object to return the resulting string.
+Create a hash set and add all the vowels into it.
+Iterate through the given string and append the characters to the stringbuilder only if it’s not a vowel.
+Convert the stringbuilder object to a string.
+Analysis:
+Time complexity: O(n) to iterate over the given string.
+Space complexity: O(n) for the stringbuilder object.
+
+import java.io.*;
+import java.util.*;
+public class Solution {
+	
+	  public String removeVowels(String S) {
+		  
+		  StringBuilder resultString = new StringBuilder();
+		  Set<Character> vowels = new HashSet<Character>();
+      		  //add all the vowels to a hashset
+		  vowels.add('a');
+		  vowels.add('e');
+		  vowels.add('i');
+		  vowels.add('o');
+		  vowels.add('u');
+      		  //iterate through the string,character by character
+		  for(char c:S.toCharArray())
+		  {
+        		  //if the current character is not a vowel, then append it to the stringbuilder
+			  if(!vowels.contains(c))
+			  {
+				  resultString.append(c);
+			  }
+		  }
+              //convert the stringbuilder to string and return
+	      return resultString.toString();
+	    }
+}
